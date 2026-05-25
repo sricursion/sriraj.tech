@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sriraj Subramanian — CS undergraduate, ML and GenAI research and projects.">
+  <title>Sriraj Subramanian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --fg: #1c1a14;
+      --muted: #6b6456;
+      --line: #c4bba8;
+      --blue: #2563eb;
+      --card: #ffffff;
+      --max: 42rem;
+      --space: 1.5rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) 4rem;
+      font-family: "Inter Tight", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(28, 26, 20, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 26, 20, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--fg);
+      line-height: 1.6;
+      font-weight: 400;
+      counter-reset: section-counter;
+    }
+
+    a {
+      color: var(--fg);
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+      text-underline-offset: 3px;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--blue);
+      text-decoration-color: var(--blue);
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    header {
+      border-top: 3px solid var(--fg);
+      padding-top: var(--space);
+      margin-bottom: clamp(3rem, 7vw, 5rem);
+    }
+
+    h1 {
+      font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.35rem;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      margin: 0;
+      font-family: "Inter Tight", system-ui, sans-serif;
+      color: var(--muted);
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+      max-width: 36ch;
+    }
+
+    nav {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: "Inter Tight", system-ui, sans-serif;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    nav a {
+      text-decoration: none;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 0.3em 0.75em 0.3em 0.65em;
+      border: 1px solid var(--fg);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    nav a::after {
+      content: " →";
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    .header-links {
+      margin: 1.5rem 0 0;
+      font-family: "Inter Tight", system-ui, sans-serif;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 2;
+      max-width: 100%;
+    }
+
+    .header-links a {
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+    }
+
+    .header-links a:hover {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    .header-links .sep {
+      color: var(--line);
+      margin: 0 0.35rem;
+    }
+
+    section {
+      margin-bottom: clamp(3rem, 6vw, 4.5rem);
+      counter-increment: section-counter;
+    }
+
+    h2 {
+      font-family: "Inter Tight", system-ui, sans-serif;
+      font-size: 0.625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.6rem;
+    }
+
+    h2::before {
+      content: "§ " counter(section-counter, decimal-leading-zero) " · ";
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      color: var(--line);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      font-size: 0.9375rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      font-size: 0.9375rem;
+      margin-bottom: 0.65rem;
+      padding-left: 0.85rem;
+      position: relative;
+    }
+
+    li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      top: 0.05em;
+    }
+
+    .entry {
+      margin-bottom: 1.75rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-title {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: 1rem;
+      margin: 0 0 0.2rem;
+    }
+
+    .entry-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      margin: 0 0 0.6rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--fg);
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-card h3 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin: 0 0 0.35rem;
+    }
+
+    .project-card .links {
+      font-family: "Inter Tight", system-ui, sans-serif;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card .links a {
+      margin-right: 0.75rem;
+    }
+
+    .project-card .links-meta {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-transform: none;
+      letter-spacing: 0.01em;
+    }
+
+    .project-card .links-meta::before {
+      content: "· ";
+      color: var(--line);
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 1rem 2rem;
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 520px) {
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .skill-label {
+      font-family: "Inter Tight", system-ui, sans-serif;
+      font-weight: 500;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .skills-grid p {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      font-family: "Inter Tight", system-ui, sans-serif;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    footer p {
+      font-size: inherit;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Sriraj Subramanian</h1>
+      <p class="tagline">Computer Science undergraduate — machine learning, GenAI, and research.</p>
+      <nav aria-label="Page sections">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+      </nav>
+      <p class="header-links">
+        <a href="mailto:work.sriraj@gmail.com">Email</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://linkedin.com/in/sriraj-s" rel="noopener noreferrer">LinkedIn</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://github.com/sricursion" rel="noopener noreferrer">GitHub</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://huggingface.co/sz-huggingface" rel="noopener noreferrer">Hugging Face</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://www.kaggle.com/sz0kaggle" rel="noopener noreferrer">Kaggle(1)</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://www.kaggle.com/sriraj1kaggle" rel="noopener noreferrer">Kaggle(2)</a>
+      </p>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Undergraduate in computer science with a focus on machine learning and emerging GenAI. Research experience and projects across ML, data science, and web development.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <p class="entry-title">SRM Institute of Science and Technology — Ramapuram, Chennai</p>
+        <p class="entry-meta">B.Tech, Computer Science and Engineering · Aug 2023 — May 2027</p>
+        <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 0;">Coursework: DBMS, data structures and algorithms, operating systems, computer networks, OOP, computer organization and architecture, linear algebra, probability and statistics, machine learning, artificial intelligence, natural language processing.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="entry">
+        <p class="entry-title">Research Intern</p>
+        <p class="entry-meta">Indian Institute of Technology, Indore · Dec 2025 — Jan 2026</p>
+        <ul>
+          <li>Applied linear algebra for ML and data science.</li>
+          <li>Guide: Prof. Safique Ahmad.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <p class="entry-title">Undergraduate Research Student</p>
+        <p class="entry-meta">SRM IST, Chennai · July 2025 — Present</p>
+        <ul>
+          <li>Research submitted for conference(s).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="entry">
+        <p class="entry-title">SRbench: benchmarking LLMs in mathematical reasoning (puzzles and riddles)</p>
+        <p class="entry-meta">Dataset · <a href="https://huggingface.co/datasets/sz-huggingface/SRbench" rel="noopener noreferrer">Hugging Face</a></p>
+        <ul>
+          <li>Built a 1000+ item NLP benchmark of math puzzles and riddles for zero-shot and few-shot LLM evaluation.</li>
+          <li>Entity- and relation-oriented annotations, dataset schema, and reproducible evaluation splits.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <p class="entry-title">Lightweight Mamba CNN for robust and efficient DR grading</p>
+        <p class="entry-meta">SRM IST, Chennai</p>
+        <ul>
+          <li>Hybrid CNN–Mamba model for multi-class diabetic retinopathy grading on fundus images.</li>
+          <li>Training pipeline with augmentation, class imbalance handling, mixed precision, F1 and confusion-matrix evaluation.</li>
+          <li>77% multi-class accuracy across five severity levels with explainability visualizations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="project-card">
+        <h3>LLM Council</h3>
+        <p class="links"><a href="https://github.com/sricursion/llm-council" rel="noopener noreferrer">Repository</a></p>
+        <ul>
+          <li>Multi-model orchestration with FastAPI, React, MongoDB, and DigitalOcean Serverless Inference.</li>
+          <li>Real-time conversations across GPT-OSS-120B, GLM5, MiniMax, and Gemini; async httpx layer, session and judge endpoints.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Real-time chat</h3>
+        <p class="links"><a href="https://github.com/sricursion/real-time-chat" rel="noopener noreferrer">Repository</a></p>
+        <ul>
+          <li>Real-time messaging stack and implementation — see repository for architecture and setup.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>SR Bench</h3>
+        <p class="links"><a href="https://huggingface.co/datasets/sz-huggingface/SRbench" rel="noopener noreferrer">Dataset on Hugging Face</a></p>
+        <ul>
+          <li>Benchmark dataset for LLM mathematical reasoning via puzzles and riddles (see research).</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Lightweight Mamba CNN (DR grading)</h3>
+        <p class="links"><a href="https://github.com/sricursion/dr-grading" rel="noopener noreferrer">Repository</a></p>
+        <ul>
+          <li>Implementation and experiments for diabetic retinopathy grading (see research above).</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>EuroSAT satellite image classification</h3>
+        <p class="links">
+          <a href="https://www.kaggle.com/code/sriraj1kaggle/notebook3e0742fb55" rel="noopener noreferrer">Kaggle notebook</a>
+          <span class="links-meta">Python · scikit-learn · PCA · SVM</span>
+        </p>
+        <ul>
+          <li>Remote-sensing classifier with HOG, LBP, HSV histograms, edge statistics, parallel feature extraction and caching.</li>
+          <li>PCA + RBF-kernel SVM: 85.9% test accuracy, 0.853 macro F1, 94.6% top-2 accuracy.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Review sentiment analysis</h3>
+        <p class="links">
+          <a href="https://www.kaggle.com/code/sz0kaggle/movie-review-sentiment-classification-3-1" rel="noopener noreferrer">Kaggle notebook</a>
+          <span class="links-meta">Python · scikit-learn · TF-IDF · NLP</span>
+        </p>
+        <ul>
+          <li>End-to-end pipeline on 25k IMDB reviews: cleaning, EDA, 20k-feature TF–IDF bi-grams.</li>
+          <li>Logistic regression: 88.7% validation accuracy, 0.89 F1; exported model and vectorizer.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical skills</h2>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-label">Languages</div>
+          <p>Python, C++, JavaScript</p>
+        </div>
+        <div>
+          <div class="skill-label">Tools</div>
+          <p>Git / GitHub</p>
+        </div>
+        <div>
+          <div class="skill-label">Databases</div>
+          <p>PostgreSQL, SQL, MongoDB</p>
+        </div>
+        <div>
+          <div class="skill-label">Frameworks</div>
+          <p>Next.js, React, Node.js, Flask</p>
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <div class="skill-label">Libraries</div>
+          <p>PyTorch, scikit-learn, TensorFlow, pandas, NumPy, Matplotlib</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Sriraj Subramanian · Last updated April 2026</p>
+    </footer>
+  </div>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
